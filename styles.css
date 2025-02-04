@@ -6,12 +6,13 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #FF7E5F, #feb47b, #86a8e7, #91eae4); /* Smooth multi-color gradient */
+  background: linear-gradient(135deg, #FF7E5F, #feb47b, #86a8e7, #91eae4);
   background-size: 400% 400%;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Footer ke liye jagah banaane ke liye */
   height: 100vh;
   margin: 0;
   overflow: hidden;
@@ -19,45 +20,9 @@ body {
   animation: gradient-animation 15s ease infinite;
 }
 
-/* Star animation */
-@keyframes starTwinkle {
-  0% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
-  }
-}
-
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  animation: starTwinkle 1.5s infinite;
-  opacity: 0.7;
-  pointer-events: none;
-  animation-delay: random;
-}
-
-/* Create a gradient background animation */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .container {
   text-align: center;
-  z-index: 2; /* Make sure content stays above the stars */
+  z-index: 2;
 }
 
 h1 {
@@ -138,45 +103,18 @@ button:hover {
   }
 }
 
-/* Generate stars on the screen */
-@media screen and (max-width: 768px) {
-  .star {
-    width: 3px;
-    height: 3px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .star {
-    width: 2px;
-    height: 2px;
-  }
-}
-
-/* Adding stars animation to the page */
-body::before {
-  content: '';
+/* Footer Styling */
+footer {
+  width: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  pointer-events: none;
-  z-index: 1;
+  text-align: center;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.3);
 }
 
-body::before {
-  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zY3JlZW5zZ2lkc2NoZW1lLnhtbCI+PHJlY3Qgd2lkdGg9IjEwMHB4IiBoZWlnaHQ9IjEwMHB4IiBzdHJva2U9IiM2NjY2NjYiLz48L3N2Zz4=') repeat;
-  opacity: 0.2;
-  background-size: 10px 10px;
-  animation: gradient-animation 15s ease infinite;
-}
-
-/* Star placement */
-.star {
-  width: 4px;
-  height: 4px;
-  top: random(100vh);
-  left: random(100vw);
-  animation-delay: random;
+footer p {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
 }
